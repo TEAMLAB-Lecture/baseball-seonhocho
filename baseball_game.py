@@ -273,7 +273,10 @@ def main():
     # ===Modify codes below=============
     # 위의 코드를 포함하여 자유로운 수정이 가능함
     while True:
-        user_input = input("Input guess number")
+        try:
+            user_input = input('Input guess number : ')
+        except:
+            return
         if not is_validated_number(user_input):
             print("Wrong Input, Input again")
             continue
