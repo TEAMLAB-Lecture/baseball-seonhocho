@@ -273,15 +273,13 @@ def main():
     # ===Modify codes below=============
     # 위의 코드를 포함하여 자유로운 수정이 가능함
     while True:
-        user_input = input("Input guess number : ")
+        user_input = input("Input guess number")
         if not is_validated_number(user_input):
             print("Wrong Input, Input again")
             continue
 
-        print("valid:::", user_input)
-
         strikes, balls = get_strikes_or_ball(user_input, random_number)
-        print(f'Strikes : {strikes}, Balls : {balls}')
+        print(f"Strikes : {strikes} , Balls : {balls}")
         if strikes == 3:
             replay = False
             while True:
@@ -294,12 +292,11 @@ def main():
                 else:
                     print("Wrong Input, Input again")
 
-            if replay:
-                random_number = str(
-                    get_not_duplicated_three_digit_number())
-                print("Random Number is : ", random_number)
-            else:
+            if not replay:
                 break
+
+            random_number = str(get_not_duplicated_three_digit_number())
+            print("Random Number is : ", random_number)
 
     # ==================================
     print("Thank you for using this program")
